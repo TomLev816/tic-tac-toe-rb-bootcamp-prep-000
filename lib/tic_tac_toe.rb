@@ -71,3 +71,17 @@ end
 def full?(board)
   board.all?{|spot| spot == "X" || spot == "O"}
 end
+
+def draw?(board)
+  !won?(board) && full?(board)
+end
+
+def over?(board)
+  won?(board) || draw?(board)
+end
+
+def winner(board)
+  if winning_combo = won?(board)
+    board[winning_combo.first]
+  end
+end
